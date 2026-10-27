@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LPU Banking - Create Customer</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <header class="topbar">
+        <div class="topbar-brand">
+            <div class="topbar-title-group">
+                <div class="topbar-logo">LPU</div>
+                <h2>Online Banking System</h2>
+            </div>
+            <div class="gold-accent-line"></div>
+            <span class="subtitle-text">Administrator Control Panel • LPU-Laguna</span>
+        </div>
+        <a href="/logout" class="logout">Logout</a>
+    </header>
+
+    <main class="container">
+        <div class="page-header">
+            <div>
+                <h1>Create Customer Profile</h1>
+                <p>Register a new user and map their bank account.</p>
+            </div>
+            <a href="/admin" class="btn secondary">Back to Dashboard</a>
+        </div>
+
+        <% if (error) { %>
+            <div class="alert error"><%= error %></div>
+        <% } %>
+
+        <section class="card">
+            <form action="/admin/create" method="POST">
+                <h2>Login Credentials</h2>
+                <div class="form-grid">
+                    <div>
+                        <label>Username</label>
+                        <input type="text" name="username" required>
+                    </div>
+                    <div>
+                        <label>Password</label>
+                        <input type="password" name="password" required>
+                    </div>
+                </div>
+
+                <h2>Customer Profile Details</h2>
+                <div class="form-grid">
+                    <div>
+                        <label>First Name</label>
+                        <input type="text" name="first_name" required>
+                    </div>
+                    <div>
+                        <label>Last Name</label>
+                        <input type="text" name="last_name" required>
+                    </div>
+                    <div>
+                        <label>Email Address</label>
+                        <input type="email" name="email">
+                    </div>
+                    <div>
+                        <label>Phone Number</label>
+                        <input type="text" name="phone">
+                    </div>
+                </div>
+                <div style="margin-bottom: 1.5rem;">
+                    <label>Home Address</label>
+                    <textarea name="address" rows="3"></textarea>
+                </div>
+
+                <h2>Initial Bank Account Setup</h2>
+                <div class="form-grid">
+                    <div>
+                        <label>Account Number</label>
+                        <input type="text" name="account_number" placeholder="e.g. 100000002" required>
+                    </div>
+                    <div>
+                        <label>Account Type</label>
+                        <select name="account_type">
+                            <option value="Savings">Savings</option>
+                            <option value="Checking">Checking</option>
+                        </select>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn primary">Register & Create Account</button>
+            </form>
+        </section>
+    </main>
+</body>
+</html>
